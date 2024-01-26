@@ -1,51 +1,36 @@
-import React, { useEffect, useRef } from 'react';
-import InputStyle from './Input.style';
+import React from 'react';
+import useTypeReduce from '../../utility/hook/useTypeReduce';
 
-type Props = {
-	state: string | null;
-	setstate: React.Dispatch<React.SetStateAction<string | null>>;
+type InputProps = {
+	state: string;
+	setstate: React.Dispatch<React.SetStateAction<string>>;
 	placeholder: string;
-	style: string;
-	reduceTime: number;
-	readOnly: boolean;
+	reduceTime?: number;
+	readOnly?: boolean;
 };
 export default function Input({
 	state,
 	setstate,
-	reduceTime = 200,
-	style = InputStyle,
 	placeholder,
+	reduceTime = 0,
 	readOnly = false,
-}: Props) {
-	const inputRef = useRef<HTMLInputElement>(null);
-
-	let timer: NodeJS.Timeout;
-	const handleText: React.ChangeEventHandler<HTMLInputElement> = (e: React.ChangeEvent) => {
-		if (timer) {
-			clearTimeout(timer);
-		}
-
-		timer = setTimeout(() => {
-			setstate(e.target.nodeValue);
-		}, reduceTime);
-	};
-
-	useEffect(() => {
-		if (inputRef.current) {
-			if (state) {
-				inputRef.current.value = state;
-			}
-		}
-	}, [state, inputRef]);
+}: InputProps) {
+	const { ref, handleReduceText } = useTypeReduce<HTMLInputElement>({
+		state,
+		setstate,
+		reduceTime,
+	});
 
 	return (
-		<input
-			disabled={readOnly}
-			ref={inputRef}
-			placeholder={placeholder}
-			name={placeholder}
-			className={style}
-			onChange={handleText}
+  <input
+    disabled={readOnly}
+    ref={ref}
+    placeholder={placeholder}
+    name={placeholder}
+    onChange={(e) => {
+				handleReduceText(e);
+			}}
+    className="bg-transparent focus:outline-none"
 		/>
 	);
 }
