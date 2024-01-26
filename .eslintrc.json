@@ -28,6 +28,7 @@
         "jsx-a11y/no-autofocus":0,
         "prettier/prettier":0,
         "@typescript-eslint/indent":0,
-        "no-tabs":0
+        "no-tabs":0,
+        "linebreak-style":0
     }
 }
