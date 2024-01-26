@@ -4,15 +4,30 @@
         "@typescript-eslint"
     ],
     "extends": [
+        "plugin:prettier/recommended",
         "plugin:@typescript-eslint/recommended",
         "airbnb",
         "airbnb/hooks",
         "airbnb-typescript",
-        "plugin:storybook/recommended",
-        "plugin:prettier/recommended"
+        "plugin:storybook/recommended"
     ],
     "parserOptions": {
         "project": "./tsconfig.json"
     },
-    "rules": {}
+    "rules": {
+        "react/require-default-props":0,
+        "import/prefer-default-export":0,
+        "jsx-a11y/control-has-associated-label":0,
+        "react/no-array-index-key":0,
+        "@typescript-eslint/no-unused-vars":0,
+        "react/jsx-no-constructed-context-values":0,
+        "no-await-in-loop":0,
+        "jsx-a11y/interactive-supports-focus":0,
+        "jsx-a11y/click-events-have-key-events":0,
+        "react-hooks/exhaustive-deps":1,
+        "jsx-a11y/no-autofocus":0,
+        "prettier/prettier":0,
+        "@typescript-eslint/indent":0,
+        "no-tabs":0
+    }
 }
