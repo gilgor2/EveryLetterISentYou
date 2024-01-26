@@ -24,7 +24,7 @@
         "no-await-in-loop":0,
         "jsx-a11y/interactive-supports-focus":0,
         "jsx-a11y/click-events-have-key-events":0,
-        "react-hooks/exhaustive-deps":1,
+        "react-hooks/exhaustive-deps":0,
         "jsx-a11y/no-autofocus":0,
         "prettier/prettier":0,
         "@typescript-eslint/indent":0,
