@@ -1,8 +1,15 @@
 import React from 'react';
-import './App.css';
+import AffirmationPage from './x-affirmation/page/AffirmationPage/AffirmationPage';
+import AffirmationContextProvider from './x-affirmation/data/context/AffirmationContextProvider';
 
 function App() {
-	return <div className="App">a</div>;
+	return (
+  <div className="App">
+    <AffirmationContextProvider>
+      <AffirmationPage />
+    </AffirmationContextProvider>
+  </div>
+	);
 }
 
 export default App;
